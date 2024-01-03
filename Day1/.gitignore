@@ -1,7 +1,7 @@
 .terraform
 .terraform.*
 .git
-*.tfstate
+terraform.tfstate
 terraform.tfstate.*
 *.tfstate.*
 *.pem
