@@ -1,6 +1,6 @@
 resource "aws_security_group" "ec2-sg-ssh" {
   description = "Allow HTTP inbound traffic only from ALB"
-  
+  # The following Inbound rule we use when we are using ALB
   /*ingress {
     description      = "HTTP from ALB"
     from_port        = 80
@@ -13,6 +13,22 @@ resource "aws_security_group" "ec2-sg-ssh" {
     description = "Allow traffic from anywhere to do SSH on port 22"
     from_port = 22
     to_port = 22
+    protocol = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    description = "Allow traffic from anywhere to do HTTP on port 80"
+    from_port = 80
+    to_port = 80
+    protocol = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    description = "Allow traffic from anywhere on port 8080"
+    from_port = 8080
+    to_port = 8080
     protocol = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
