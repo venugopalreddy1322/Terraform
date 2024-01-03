@@ -4,4 +4,4 @@
 terraform.tfstate
 terraform.tfstate.*
 *.tfstate.*
-*.pem
+ec2keypair.pem
