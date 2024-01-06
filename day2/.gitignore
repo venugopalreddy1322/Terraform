@@ -1,0 +1,7 @@
+.terraform
+.terraform.*
+.git
+terraform.tfstate
+#terraform.tfstate.*
+*.tfstate.*
+ec2keypair.pem
