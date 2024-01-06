@@ -32,6 +32,13 @@ resource "aws_security_group" "ec2-sg-ssh" {
     protocol = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
+  ingress {
+    description = "Allow traffic from anywhere on port 9000"
+    from_port = 9000
+    to_port = 9000
+    protocol = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
 
   egress {
     from_port        = 0
@@ -61,4 +68,9 @@ resource "aws_instance" "webserver" {
       # terraform plan/apply -var-file="prod.tfvars" -this will fetch the variable value form given file
       # in this example prod.tfvars
     }  
+}
+#here to stop and start the instance
+resource "aws_ec2_instance_state" "test" {
+  instance_id = aws_instance.webserver.id
+  state       = "running"    #stopped -to stop
 }
