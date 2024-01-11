@@ -4,5 +4,5 @@ output "ipaddress" {
 }
 output "key-pair" {
   value = aws_instance.webserver.key_name
-  
+
 }
