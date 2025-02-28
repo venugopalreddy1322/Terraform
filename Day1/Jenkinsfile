@@ -9,15 +9,14 @@ pipeline {
         stage('Checkout SCM') {
             steps {
                 checkout scm
-                sh 'ls *'
-                sh 'pwd'
+                sh 'pwd' // to check the present working directory
             }
         }
         stage('Terraform Stage') {
             steps {
                 dir('Day1') {
                     sh """
-                        pwd
+                        pwd // to check the current directory
                         terraform init
                         terraform plan
                         terraform apply --auto-approve
@@ -32,7 +31,7 @@ pipeline {
         }
         stage('Search and Destroy') {
             steps {
-                sh 'cd Day1; terraform destroy --auto-approve'
+                sh 'cd Day1; terraform destroy --auto-approve' // can also use dir()
             }
         }
     }
