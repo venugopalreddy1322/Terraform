@@ -1,0 +1,39 @@
+pipeline {
+    agent any
+    stages {
+        stage('Clean Up') {
+            steps {
+                deleteDir()
+            }
+        }
+        stage('Checkout SCM') {
+            steps {
+                Checkout scm
+                sh 'ls *'
+                sh 'pwd'
+            }
+        }
+        stage('Terraform Stage') {
+            steps {
+                dir('Day1') {
+                    sh """
+                        pwd
+                        terraform init
+                        terraform plan
+                        terraform apply --auto-approve
+                    """
+                }
+            }    
+        }
+        stage('Input message') {
+            steps {
+                input message: 'Destroy Terraform Resources' 
+            }
+        }
+        stage('Search and Destroy') {
+            steps {
+                sh 'cd Day1; terraform destroy --auto-approve'
+            }
+        }
+    }
+}

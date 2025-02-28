@@ -63,7 +63,7 @@ resource "aws_instance" "webserver" {
   # To attach- the .pem file should be in the same directory
   # in this example in Day1 folder
   #key_name = "ec2keypair" # this keypair is from us-east-1
-  key_name = "ec2keypair_eu_nord_1.pem" # This keypair is from eu-nord-1
+  #key_name = "ec2keypair_eu_nord_1.pem" # This keypair is from eu-nord-1
   tags = {
     Name = "${var.name}-instance"
     # terraform plan/apply -var-file="prod.tfvars" -this will fetch the variable value form given file
