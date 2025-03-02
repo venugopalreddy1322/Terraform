@@ -34,6 +34,7 @@ export AWS_ACCESS_KEY_ID=your_access_key_id
 export AWS_SECRET_ACCESS_KEY=your_secret_access_key
 ```
 
+
 ### 3. Jenkins Pipeline Configuration
 Create a Jenkins pipeline with the following configuration:
 
@@ -69,7 +70,7 @@ pipeline {
         }
         stage('Search and Destroy') {
             steps {
-                sh 'cd Day1; terraform destroy --auto-approve'
+                sh 'cd Day1; terraform destroy --auto-approve' 
             }
         }
     }
@@ -84,5 +85,4 @@ Trigger the Jenkins pipeline using GitHub Webhook feature to automatically fetch
 
 ## Contributing
 Feel free to contribute by submitting issues, pull requests, or suggestions to improve the project.
-
-
+Thank you.
