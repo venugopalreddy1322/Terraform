@@ -1,15 +1,15 @@
 # Datasource of AWS Availability Zones
 data "aws_availability_zones" "available" {
-  state = available
+  state = "available"
 }
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "5.19.0"
   # vpc basic details
-  name            = "${local.name}-${var.vpc_name}"
-  cidr            = var.vpc_cidr_block
+  name = "${local.name}-${var.vpc_name}"
+  cidr = var.vpc_cidr_block
   #azs             = var.vpc_availability_zones
-  azs = data.aws_availability_zones.available.names
+  azs             = data.aws_availability_zones.available.names
   private_subnets = var.vpc_private_subnets
   public_subnets  = var.vpc_public_subnets
 
@@ -27,21 +27,21 @@ module "vpc" {
   enable_dns_support   = true
 
   public_subnet_tags = {
-    Type = "Public-subnets"
-    "kubernetes.io/role/elb" = 1    
-    "kubernetes.io/cluster/${local.eks_cluster_name}" = "shared" 
+    Type                                              = "Public-subnets"
+    "kubernetes.io/role/elb"                          = 1
+    "kubernetes.io/cluster/${local.eks_cluster_name}" = "shared"
   }
   private_subnet_tags = {
-    Type = "Private-subnets"
-    "kubernetes.io/role/elb" = 1    
-    "kubernetes.io/cluster/${local.eks_cluster_name}" = "shared" 
+    Type                                              = "Private-subnets"
+    "kubernetes.io/role/elb"                          = 1
+    "kubernetes.io/cluster/${local.eks_cluster_name}" = "shared"
   }
   database_subnet_tags = {
     Type = "Database-subnets"
   }
-  tags = local.common_tags
+  tags     = local.common_tags
   vpc_tags = local.common_tags
-  
+
   map_public_ip_on_launch = true
 
 }
