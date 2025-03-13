@@ -8,7 +8,7 @@ module "public_bastion_sg" {
   # Ingress rules and CIDR Blocks
   ingress_rules = ["ssh-tcp"]
   ingress_cidr_blocks = ["0.0.0.0/0"]
-  # Ingress rules and CIDR Blocks
-  ingress_rules = ["all-all"]
+  # Egress rules and CIDR Blocks
+  egress_rules = ["all-all"]
   tags = local.common_tags
 }
