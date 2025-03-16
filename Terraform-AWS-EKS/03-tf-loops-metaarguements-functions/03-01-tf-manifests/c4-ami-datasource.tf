@@ -7,7 +7,7 @@ data "aws_ami" "amz2ami" {
   filter {
     name   = "name"
     #values = ["amzn2-ami-*-*-hvm-*-gp2"]
-    values = ["amzn2-ami-kernel-5.10-hvm-*-x86_64-gp2"] #Free-tier eligible
+    values = ["amzn2-ami-kernel-*-hvm-*-x86_64-gp2"] #Free-tier eligible
   }
   filter {
     name   = "is-public"
