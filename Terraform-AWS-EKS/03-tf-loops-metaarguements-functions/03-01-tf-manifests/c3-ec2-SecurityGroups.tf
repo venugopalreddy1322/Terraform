@@ -1,6 +1,6 @@
 resource "aws_security_group" "allow_http_ssh" {
   name        = "allow_http"
-  description = "Allow HTTP port-80 and SSH on port 22inbound traffic and all outbound traffic"
+  description = "Allow HTTP on port-80 and SSH on port 22 inbound traffic and all outbound traffic"
   #vpc_id      = aws_vpc.main.id
   tags = {
     Name = "allow_http_ssh"
