@@ -1,0 +1,9 @@
+.git
+.terraform
+.terraform.*
+*.terraform
+.vscode
+*.tfstate
+*.tfstate.*
+*.pem
+ec2keypair.pem
