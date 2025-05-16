@@ -26,7 +26,7 @@ resource "aws_vpc_security_group_ingress_rule" "allow_ssh_ipv4" {
 }
 
 resource "aws_vpc_security_group_ingress_rule" "allow_jenkins" {
-  security_group_id = aws_security_group.allow_jenkins.id
+  security_group_id = aws_security_group.allow_http_ssh.id
   cidr_ipv4 = "0.0.0.0/0"
   from_port = 8080
   ip_protocol = "tcp"
