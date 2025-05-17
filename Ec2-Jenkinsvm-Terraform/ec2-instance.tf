@@ -14,7 +14,7 @@ resource "aws_instance" "Webserver" {
 }
 /*resource "aws_ec2_instance_state" "stop_or_instance" {
   instance_id = aws_instance.Webserver.id
-  #state       = "stopped"  # Change to "running" to start the instance
-  state = "running"
+  state       = "stopped"  # Change to "running" to start the instance
+  #state = "running"
 }
 */
