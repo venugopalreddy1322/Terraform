@@ -57,7 +57,7 @@ resource "aws_vpc_security_group_ingress_rule" "allow_custom_traffic" {
   to_port = 5000
 }
 # Egress Rule
-resource "aws_vpc_security_group_egress_rule" "allow_all_traffic_ipv4" {
+resource "aws_vpc_security_group_egress_rule" "allow_all_traffic_ipv4_custom" {
   security_group_id = aws_security_group.allow_custom_ports.id
   cidr_ipv4         = "0.0.0.0/0"
   ip_protocol       = "-1" # semantically equivalent to all ports
