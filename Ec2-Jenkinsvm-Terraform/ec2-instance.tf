@@ -3,7 +3,7 @@ resource "aws_instance" "Webserver" {
   instance_type = var.instance_type
   key_name = var.keypair
   user_data     = file("userdata-jenkins.sh")
-  vpc_security_group_ids = [aws_security_group.allow_http_ssh.id]
+  vpc_security_group_ids = [aws_security_group.allow_http_ssh.id, aws_security_group.allow_custom_ports.id]
   root_block_device {
   volume_size = 16  # Default Free Tier size
   volume_type = "gp2"  # Free Tier eligible (NOTE gp2/gp3 will depends on ami you selected)
