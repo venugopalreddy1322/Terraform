@@ -4,7 +4,11 @@ resource "aws_instance" "Webserver" {
   key_name = var.keypair
   user_data     = file("userdata-jenkins.sh")
   vpc_security_group_ids = [aws_security_group.allow_http_ssh.id]
+  root_block_device {
+  volume_size = 16  # Default Free Tier size
+  volume_type = "gp2"  # Free Tier eligible
+  }
   tags = {
-    "name" = "Amazon-Linux-Webserver"
+    "name" = "Jenkins-Server-Amz-Linux"
   }
 }
