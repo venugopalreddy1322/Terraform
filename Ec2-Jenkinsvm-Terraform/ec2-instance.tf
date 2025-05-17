@@ -6,7 +6,7 @@ resource "aws_instance" "Webserver" {
   vpc_security_group_ids = [aws_security_group.allow_http_ssh.id]
   root_block_device {
   volume_size = 16  # Default Free Tier size
-  volume_type = "gp2"  # Free Tier eligible
+  volume_type = "gp2"  # Free Tier eligible (NOTE gp2/gp3 will depends on ami you selected)
   }
   tags = {
     "name" = "Jenkins-Server-Amz-Linux"
