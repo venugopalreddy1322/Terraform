@@ -6,3 +6,7 @@ output "ec2_public_ip" {
 output "key-pair" {
  value = aws_instance.Webserver.key_name
 }
+output "ami" {
+  description = "selected ami"
+  value = aws_instance.Webserver.ami
+}
