@@ -25,4 +25,4 @@ sudo amazon-linux-extras install docker -y
 sudo yum install -y docker
 sudo service docker start
 sudo usermod -a -G docker ec2-user
-sudo jenkins -aG docker jenkins
+sudo usermod -aG docker jenkins
