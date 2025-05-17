@@ -6,3 +6,4 @@ Instance details:
 4. User data which installs Java 17 and Jenkins
 5. Attaching already created Key-pair with EC2 Instance
 6. Changed the root device default storage from 8gb to 16gb, default dive type will change according to the ami selected between gp2 or gp3 for free tier 
+7. Using Using Terraform's aws_ec2_instance_state resource, we can start or stop the instance.
