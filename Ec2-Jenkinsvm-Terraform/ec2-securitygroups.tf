@@ -40,7 +40,7 @@ resource "aws_vpc_security_group_egress_rule" "allow_all_traffic_ipv4" {
   ip_protocol       = "-1" # semantically equivalent to all ports
 }
 
-resource "aws_security_group" "allow_cutom_ports" {
+resource "aws_security_group" "allow_custom_ports" {
   name        = "allow_custom_ports"
   description = "Allow custom TCP on port 5000 inbound traffic and all outbound traffic"
   #vpc_id      = aws_vpc.main.id
@@ -49,7 +49,7 @@ resource "aws_security_group" "allow_cutom_ports" {
   }
 }
 resource "aws_vpc_security_group_ingress_rule" "allow_custom_traffic" {
-  security_group_id = aws_security_group.allow_cutom_ports.id
+  security_group_id = aws_security_group.allow_custom_ports.id
   cidr_ipv4 = "0.0.0.0/0"
   from_port = 5000
   ip_protocol = "tcp"
