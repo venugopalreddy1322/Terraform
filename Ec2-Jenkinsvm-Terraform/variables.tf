@@ -14,7 +14,7 @@ variable "instance_type" {
 # Instance name
 variable "instance_name" {
   description = "Name of the Instance"
-  default = "Jenkins-Sever-"
+  default = "Jenkins-Sever-amzLinux2"
 }
 variable "keypair" {
     description = "Ec2keypair"

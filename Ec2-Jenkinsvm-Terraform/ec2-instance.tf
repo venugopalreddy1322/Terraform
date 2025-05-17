@@ -9,7 +9,7 @@ resource "aws_instance" "Webserver" {
   volume_type = "gp2"  # Free Tier eligible (NOTE gp2/gp3 will depends on ami you selected)
   }
   tags = {
-    "name" = "Jenkins-Server-Amz-Linux"
+    "name" = var.instance_name
   }
 }
 /*resource "aws_ec2_instance_state" "stop_or_instance" {
