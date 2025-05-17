@@ -10,3 +10,6 @@ output "ami" {
   description = "selected ami"
   value = aws_instance.Webserver.ami
 }
+output "aws_ec2_instance_state" {
+  value = aws_ec2_instance_state.stop_or_instance.state
+}
