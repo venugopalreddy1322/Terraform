@@ -11,6 +11,11 @@ variable "instance_type" {
   default     = "t2.micro"
   type        = string
 }
+# Instance name
+variable "instance_name" {
+  description = "Name of the Instance"
+  default = "Jenkins-Sever-"
+}
 variable "keypair" {
     description = "Ec2keypair"
     default = "ec2-us-east-1"
