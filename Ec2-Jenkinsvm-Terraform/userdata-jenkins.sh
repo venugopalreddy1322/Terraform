@@ -24,6 +24,8 @@ sudo yum update -y
 sudo amazon-linux-extras install docker -y
 sudo yum install -y docker
 sudo service docker start
+
+# add ec2-user and jenkins to docker group
 sudo usermod -aG docker ec2-user
 sudo usermod -aG docker jenkins
 sudo systemctl restart jenkins
