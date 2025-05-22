@@ -26,7 +26,7 @@ pipeline {
         }
         stage('Input message') {
             steps {
-                input message: 'Destroy Terraform Resources?' 
+                input message: 'Destroy Resorces created by Terraform?' 
             }
         }
         stage('Search and Destroy') {
